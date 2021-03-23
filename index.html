@@ -47,7 +47,7 @@
     <div class="button">
         <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#login">API</button>
         <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#register">投稿</button>
-        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#register">Github</button>
+        <a type="button" class="btn btn-outline-dark" target="_blank" href="https://github.com/Drizzle365/echo">Github</a>
     </div>
 </nav>
 <div id="echo_box" style="min-height: 110px">
@@ -59,17 +59,19 @@
 </div>
 </body>
 <script>
-    const echo_box = document.getElementById('echo_box')
-    const Height = document.documentElement.clientHeight
-    const Height_echo = echo_box.offsetHeight
-    echo_box.style.marginTop = (Height - Height_echo) / 3 + "px"
-    const footer_box = document.getElementById('footer_box')
-    const Height_footer = footer_box.offsetHeight
-    footer_box.style.marginTop = (Height - Height_footer - 420) + "px"
+    function start() {
+        const echo_box = document.getElementById('echo_box')
+        const Height = document.documentElement.clientHeight
+        const Height_echo = echo_box.offsetHeight
+        echo_box.style.marginTop = (Height - Height_echo) / 3 + "px"
+        const footer_box = document.getElementById('footer_box')
+        const Height_footer = footer_box.offsetHeight
+        footer_box.style.marginTop = (Height - Height_footer - 420) + "px"
+    }
 
     function update() {
+        document.getElementById('update').innerHTML = '正在获取';
         $.get("model/api.php", function (data, status) {
-            document.getElementById('update').innerHTML = '正在获取';
             setTimeout(function () {
                 data = $.parseJSON(data);
                 if (status === 'success')
@@ -80,7 +82,10 @@
             }, 300)
         });
     }
-
+    window.onresize = function (){
+        start()
+    }
+    start()
     update();
 </script>
 </html>

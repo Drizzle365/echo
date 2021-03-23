@@ -16,7 +16,7 @@ class Mysql
 
     public function __construct()//构造器
     {
-        $dsn = "mysql:host=159.75.52.227;dbname=echo";
+        $dsn = "mysql:host=127.0.0.1;dbname=echo";
         $this->pdo = new PDO($dsn, 'echo', 'xA8aCXb2DSGnEMyj');
     }
 
