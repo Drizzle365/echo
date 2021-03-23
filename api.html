@@ -28,7 +28,6 @@
 
     .echo_text {
         color: white;
-        font-size: 25px;
         /*noinspection CssInvalidFunction*/
         background-color: rgb(0, 0, 0, 0.6);
         border-radius: 30px;
@@ -44,49 +43,25 @@
 </style>
 <body class="container">
 <nav class="navbar navbar-light bg-light" style="border-radius: 10px;opacity: 0.8;margin-top: 20px">
-    <div id="update" onclick="update()" style="color:#9c27b0;font-size: 18px;cursor: pointer">来一句</div>
+    <a href="/" style="color:#9c27b0;font-size: 18px;cursor: pointer">首页</a>
     <div class="button">
-        <a type="button" class="btn btn-outline-success" href="/api.html">API</a>
+        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#login">API</button>
         <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#register">投稿</button>
         <a type="button" class="btn btn-outline-dark" target="_blank" href="https://github.com/Drizzle365/echo">Github</a>
     </div>
 </nav>
-<div id="echo_box" style="min-height: 110px">
-    <p id="echo" class="echo_text">正在获取数据</p>
+<div id="echo_box" style="min-height: 110px;margin-top: 30px;">
+    <div id="echo" class="echo_text">
+        <p style="text-align: left">
+            动漫也好、小说也好、网络也好，不论在哪里，我们总会看到有那么一两个句子能穿透你的心。我们把这些句子汇聚起来，形成一言网络，以传递更多的感动。如果可以，我们希望我们没有停止服务的那一天。
+            简单来说，一言指的就是一句话，可以是动漫中的台词，也可以是网络上的各种小段子。 或是感动，或是开心，有或是单纯的回忆。来到这里，留下你所喜欢的那一句句话，与大家分享，这就是一言存在的目的。
+        </p>
+        <p style="text-align: left">接口使用：<br>默认方式：http://echo.drizzle.vip/model/api.php<br>文本方式：http://echo.drizzle.vip/model/api.php?type=text</p>
+    </div>
 </div>
-
+<div style="height: 20px"></div>
 <div id="footer_box" class="footer">
     <a style="color: white">Copyright © 2021 Drizzle. All Rights Reserved.</a>
 </div>
 </body>
-<script>
-    function start() {
-        const echo_box = document.getElementById('echo_box')
-        const Height = document.documentElement.clientHeight
-        const Height_echo = echo_box.offsetHeight
-        echo_box.style.marginTop = (Height - Height_echo) / 3 + "px"
-        const footer_box = document.getElementById('footer_box')
-        const Height_footer = footer_box.offsetHeight
-        footer_box.style.marginTop = (Height - Height_footer - 420) + "px"
-    }
-
-    function update() {
-        document.getElementById('update').innerHTML = '正在获取';
-        $.get("model/api.php", function (data, status) {
-            setTimeout(function () {
-                data = $.parseJSON(data);
-                if (status === 'success')
-                    document.getElementById('echo').innerHTML = data['content']
-                else
-                    alert("网络错误")
-                document.getElementById('update').innerHTML = '来一句💨';
-            }, 100)
-        });
-    }
-    window.onresize = function (){
-        start()
-    }
-    start()
-    update();
-</script>
 </html>
