@@ -28,7 +28,7 @@
 
     .echo_text {
         color: white;
-        font-size: 25px;
+        font-size: 18px;
         /*noinspection CssInvalidFunction*/
         background-color: rgb(0, 0, 0, 0.6);
         border-radius: 30px;
@@ -42,13 +42,13 @@
         border-radius: 30px;
     }
 </style>
-<body class="container">
+<body id="main" class="container">
 <nav class="navbar navbar-light bg-light" style="border-radius: 10px;opacity: 0.8;margin-top: 20px">
     <div id="update" onclick="update()" style="color:#9c27b0;font-size: 18px;cursor: pointer">来一句</div>
     <div class="button">
-        <a type="button" class="btn btn-outline-success" href="/api.html">API</a>
-        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#register">投稿</button>
-        <a type="button" class="btn btn-outline-dark" target="_blank" href="https://github.com/Drizzle365/echo">Github</a>
+        <a class="btn btn-outline-success" href="/api.html">API</a>
+        <a class="btn btn-outline-danger">投稿</a>
+        <a class="btn btn-outline-dark" target="_blank" href="https://github.com/Drizzle365/echo">Github</a>
     </div>
 </nav>
 <div id="echo_box" style="min-height: 110px">
@@ -56,7 +56,7 @@
 </div>
 
 <div id="footer_box" class="footer">
-    <a style="color: white">Copyright © 2021 Drizzle. All Rights Reserved.</a>
+    <a style="color: white" href="https://drizzle.vip">Copyright © 2021 Drizzle. All Rights Reserved.</a>
 </div>
 </body>
 <script>
@@ -83,10 +83,12 @@
             }, 100)
         });
     }
-    window.onresize = function (){
+
+    window.onresize = function () {
         start()
     }
     start()
     update();
+
 </script>
 </html>
