@@ -17,9 +17,11 @@
         font-family: Zpix;
         src: url(echo.woff2);
     }
+
     * {
-        font-family: Zpix,sans-serif !important;
+        font-family: Zpix, sans-serif !important;
     }
+
     body {
         background-image: url("assets/img/bj.jpg");
         background-repeat: no-repeat;
@@ -33,6 +35,14 @@
         text-align: center;
     }
 
+    .echo_text {
+        color: white;
+        /*noinspection CssInvalidFunction*/
+        background-color: rgb(0, 0, 0, 0.6);
+        border-radius: 30px;
+        padding: 18px
+    }
+
     .footer {
         margin-bottom: 20px;
         /*noinspection CssInvalidFunction*/
@@ -44,12 +54,67 @@
 <nav class="navbar navbar-light bg-light" style="border-radius: 10px;opacity: 0.8;margin-top: 20px">
     <a href="/" style="color:#9c27b0;font-size: 18px;cursor: pointer">首页</a>
     <div class="button">
-        <a class="btn btn-outline-danger">投稿</a>
+        <a class="btn btn-outline-success" href="api.html">API</a>
         <a class="btn btn-outline-dark" target="_blank" href="https://github.com/Drizzle365/echo">Github</a>
     </div>
 </nav>
 <div id="echo_box" style="min-height: 110px;margin-top: 30px;">
-
+    <div id="echo" class="echo_text" style="text-align: left">
+        <div class="form-group">
+            <label for="echo_text">Echo:</label>
+            <input type="text" class="form-control" id="echo_text" aria-describedby="emailHelp">
+            <small class="form-text text-muted">在这里分享你的一句话吧</small>
+        </div>
+        <div class="form-group">
+            <label for="from_where">来自:</label>
+            <input type="text" style="width: 200px" class="form-control" id="from_where"
+                   aria-describedby="emailHelp">
+            <small class="form-text text-muted">这里填写句子的来历哦，如动漫名称，文学作品名称</small>
+        </div>
+        <div class="form-group">
+            <label for="from_who">作者:</label>
+            <input type="text" style="width: 200px" class="form-control" id="from_who" aria-describedby="emailHelp">
+            <small class="form-text text-muted">这里填写句子出自哪位人物的口中</small>
+        </div>
+        <a>句子类别:</a>
+        <br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type1" value="option1">
+            <label class="form-check-label" for="type1">动画</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type2" value="option2">
+            <label class="form-check-label" for="type2">漫画</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type3" value="option3">
+            <label class="form-check-label" for="type3">游戏</label>
+        </div>
+        <br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type4" value="option3">
+            <label class="form-check-label" for="type4">文学</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type5" value="option3">
+            <label class="form-check-label" for="type5">原创</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type6" value="option3">
+            <label class="form-check-label" for="type6">网络</label>
+        </div>
+        <br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type7" value="option3">
+            <label class="form-check-label" for="type7">其他</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type8" value="option3">
+            <label class="form-check-label" for="type8">影视</label>
+        </div>
+        <br><br>
+        <button class="btn btn-outline-success">投递</button>
+    </div>
 </div>
 <div style="height: 20px"></div>
 <div id="footer_box" class="footer">
