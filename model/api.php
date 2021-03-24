@@ -4,8 +4,8 @@ $type = null;
 if (isset($_GET['type']))
     $type = $_GET['type'];
 $db = new Mysql();
-$data = $db->table('data')->field('*')->where('Id>-1')->item();
+$data = $db->table('data')->field('*')->where('')->item();
 if ($type == 'text')
     exit($data['content']);
 else
-    echo(json_encode($data));
+    echo(json_encode($data, JSON_UNESCAPED_UNICODE));
