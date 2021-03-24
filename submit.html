@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>投稿-Echo</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+</head>
+<style>
+    @font-face {
+        font-family: Zpix;
+        src: url(echo.woff2);
+    }
+    * {
+        font-family: Zpix,sans-serif !important;
+    }
+    body {
+        background-image: url("assets/img/bj.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        width: 92%;
+        height: 100%;
+        align-items: center;
+        margin: auto;
+        text-align: center;
+    }
+
+    .footer {
+        margin-bottom: 20px;
+        /*noinspection CssInvalidFunction*/
+        background-color: rgb(243, 35, 35, 0.6);
+        border-radius: 30px;
+    }
+</style>
+<body class="container">
+<nav class="navbar navbar-light bg-light" style="border-radius: 10px;opacity: 0.8;margin-top: 20px">
+    <a href="/" style="color:#9c27b0;font-size: 18px;cursor: pointer">首页</a>
+    <div class="button">
+        <a class="btn btn-outline-danger">投稿</a>
+        <a class="btn btn-outline-dark" target="_blank" href="https://github.com/Drizzle365/echo">Github</a>
+    </div>
+</nav>
+<div id="echo_box" style="min-height: 110px;margin-top: 30px;">
+
+</div>
+<div style="height: 20px"></div>
+<div id="footer_box" class="footer">
+    <a style="color: white;font-size: 15px">Copyright © 2021 Drizzle. All Rights Reserved.</a>
+</div>
+</body>
+</html>

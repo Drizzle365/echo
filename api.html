@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Echo</title>
+    <title>API-Echo</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -52,7 +52,7 @@
 <nav class="navbar navbar-light bg-light" style="border-radius: 10px;opacity: 0.8;margin-top: 20px">
     <a href="/" style="color:#9c27b0;font-size: 18px;cursor: pointer">首页</a>
     <div class="button">
-        <a class="btn btn-outline-danger">投稿</a>
+        <a class="btn btn-outline-danger" href="submit.html">投稿</a>
         <a class="btn btn-outline-dark" target="_blank" href="https://github.com/Drizzle365/echo">Github</a>
     </div>
 </nav>
@@ -65,24 +65,26 @@
             或是感动，或是开心，有或是单纯的回忆。<br>
             来到这里，留下你所喜欢的那一句句话，与大家分享，这就是一言存在的目的。<br>
         <h4 style="text-align: left">请求地址：</h4>
-        <table class="table table-sm table-hover table-dark">
-            <thead>
-            <tr class="table-success">
-                <th scope="col">接口</th>
-                <th scope="col">演示</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">Json</th>
-                <td style="text-align: left"><a style="color: white" target="_blank" href="http://echo.drizzle.vip/model/api.php">http://echo.drizzle.vip/model/api.php</a></td>
-            </tr>
-            <tr>
-                <th scope="row">Text</th>
-                <td style="text-align: left"><a style="color: white" target="_blank" href="http://echo.drizzle.vip/model/api.php?encode=text">http://echo.drizzle.vip/model/api.php?encode=text</a></td>
-            </tr>
-            </tbody>
-        </table>
+        <div style="overflow: auto">
+            <table class="table table-sm table-hover table-dark">
+                <thead>
+                <tr class="table-success">
+                    <th scope="col">接口</th>
+                    <th scope="col">演示</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">Json</th>
+                    <td style="text-align: left"><a style="color: white" target="_blank" href="http://echo.drizzle.vip/model/api.php">http://echo.drizzle.vip/model/api.php</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">Text</th>
+                    <td style="text-align: left"><a style="color: white" target="_blank" href="http://echo.drizzle.vip/model/api.php?encode=text">http://echo.drizzle.vip/model/api.php?encode=text</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
         <h4 style="text-align: left">句子类型 (type参数)：</h4>
         <table class="table table-sm table-hover table-dark" style="width: 200px">
             <thead>

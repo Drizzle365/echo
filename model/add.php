@@ -1,4 +1,4 @@
-
+<?php
 require_once 'mysql.php';
 if (!isset($_GET['content']))
     exit('未检测到数据');
