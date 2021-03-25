@@ -70,11 +70,37 @@
     </div>
 </nav>
 <div id="echo_box" style="min-height: 110px">
-    <p id="echo" class="echo_text" style="animation: animate 1s linear infinite;">
+    <p id="echo" class="echo_text" style="animation: animate 1s linear infinite;cursor: pointer" data-toggle="modal"
+       data-target="#see">
         正在获取数据
     </p>
 </div>
+<!-- 模态框 -->
+<div class="modal fade" id="see">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">句子详情：</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body" id="see_box">
+                <p id="see_content"></p>
+                <p id="see_like"></p>
+                <p id="see_from"></p>
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary">💕 喜爱 + 1</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div id="footer_box" class="footer">
     <a style="color: white;font-size: 15px">Copyright © 2021 Drizzle. All Rights
         Reserved.</a>
@@ -96,9 +122,18 @@
         $.get("model/api.php", function (data, status) {
             setTimeout(function () {
                 data = $.parseJSON(data);
-                if (status === 'success')
-                    document.getElementById('echo').innerHTML = data['content']
-                else
+                if (status === 'success') {
+                    document.getElementById('echo').innerHTML = data['content'];
+                    document.getElementById('see_content').innerHTML = data['content'];
+                    document.getElementById('see_like').innerHTML = '💕 喜爱: ' + data['likes'];
+                    if (data['from_who'] === 'None')
+                        data['from_who'] = '';
+                    if (data['from_where'] === 'None')
+                        data['from_where'] = ''
+                    else
+                        data['from_where'] = ' 《' + data['from_where'] + '》 ';
+                    document.getElementById('see_from').innerHTML = '🍻 来自: ' + data['from_who'] + data['from_where'];
+                } else
                     alert("网络错误")
                 document.getElementById('update').innerHTML = '来一句💨';
             }, 100)
