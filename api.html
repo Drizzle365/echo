@@ -17,9 +17,11 @@
         font-family: Zpix;
         src: url(echo.woff2);
     }
+
     * {
-        font-family: Zpix,sans-serif !important;
+        font-family: Zpix, sans-serif !important;
     }
+
     body {
         background-image: url("assets/img/bj.jpg");
         background-repeat: no-repeat;
@@ -64,6 +66,8 @@
             简单来说，一言指的就是一句话，可以是动漫中的台词，也可以是网络上的各种小段子。 <br>
             或是感动，或是开心，有或是单纯的回忆。<br>
             来到这里，留下你所喜欢的那一句句话，与大家分享，这就是一言存在的目的。<br>
+        <h6 style="text-align: left;color:orange;">开发者：Drizzle (QQ:396823203)</h6>
+        <h6 style="text-align: left;color:orange;">如果您有什么想法或建议可以联系👆</h6>
         <h4 style="text-align: left">请求地址：</h4>
         <div style="overflow: auto">
             <table class="table table-sm table-hover table-dark">
@@ -76,15 +80,40 @@
                 <tbody>
                 <tr>
                     <th scope="row">Json</th>
-                    <td style="text-align: left"><a style="color: white" target="_blank" href="http://echo.drizzle.vip/model/api.php">http://echo.drizzle.vip/model/api.php</a></td>
+                    <td style="text-align: left">
+                        <a style="color: white" target="_blank"
+                           href="http://echo.drizzle.vip/model/api.php">http://echo.drizzle.vip/model/api.php</a>
+                    </td>
                 </tr>
                 <tr>
                     <th scope="row">Text</th>
-                    <td style="text-align: left"><a style="color: white" target="_blank" href="http://echo.drizzle.vip/model/api.php?encode=text">http://echo.drizzle.vip/model/api.php?encode=text</a></td>
+                    <td style="text-align: left">
+                        <a style="color: white" target="_blank"
+                           href="http://echo.drizzle.vip/model/api.php?encode=text">http://echo.drizzle.vip/model/api.php?encode=text</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>
         </div>
+        <h4 style="text-align: left">编码方式 (encode参数)：</h4>
+        <table class="table table-sm table-hover table-dark" style="width: 300px">
+            <thead>
+            <tr class="table-success">
+                <th scope="col">参数</th>
+                <th scope="col">类型</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">json</th>
+                <td>JSON编码，含有句子所有数据</td>
+            </tr>
+            <tr>
+                <th scope="row">text</th>
+                <td>TEXT文本，直接输出句子本身</td>
+            </tr>
+            </tbody>
+        </table>
         <h4 style="text-align: left">句子类型 (type参数)：</h4>
         <table class="table table-sm table-hover table-dark" style="width: 200px">
             <thead>

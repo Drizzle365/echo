@@ -61,76 +61,82 @@
 <div id="echo_box" style="min-height: 110px;margin-top: 30px;">
     <div id="echo" class="echo_text" style="text-align: left">
         <div class="form-group">
-            <label for="echo_text">Echo:</label>
-            <input type="text" class="form-control" id="echo_text" aria-describedby="emailHelp">
+            <label for="content">Echo:</label>
+            <input type="text" class="form-control" id="content" aria-describedby="emailHelp">
             <small class="form-text text-muted">在这里分享你的一句话吧</small>
         </div>
         <div class="form-group">
-            <label for="from_where">来自:</label>
+            <label for="from_where">来自(可空):</label>
             <input type="text" style="width: 200px" class="form-control" id="from_where"
                    aria-describedby="emailHelp">
             <small class="form-text text-muted">这里填写句子的来历哦，如动漫名称，文学作品名称</small>
         </div>
         <div class="form-group">
-            <label for="from_who">作者:</label>
+            <label for="from_who">作者(可空):</label>
             <input type="text" style="width: 200px" class="form-control" id="from_who" aria-describedby="emailHelp">
             <small class="form-text text-muted">这里填写句子出自哪位人物的口中</small>
         </div>
+        <div class="form-group">
+            <label for="email">邮箱:</label>
+            <input type="email" style="width: 200px" class="form-control" id="email" aria-describedby="emailHelp">
+            <small class="form-text text-muted">填写您的邮箱，投递通过后我们会发送提醒</small>
+        </div>
         <a>句子类别:</a>
         <br>
+        <div style="height: 5px"></div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="type1" value="option1">
-            <label class="form-check-label" for="type1">动画</label>
+            <input class="form-check-input" type="radio" name="type" id="type1" value="a">
+            <label class="form-check-label" for="type1">动画 &nbsp</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="type2" value="option2">
-            <label class="form-check-label" for="type2">漫画</label>
+            <input class="form-check-input" type="radio" name="type" id="type2" value="b">
+            <label class="form-check-label" for="type2">漫画 &nbsp</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="type3" value="option3">
-            <label class="form-check-label" for="type3">游戏</label>
-        </div>
-        <br>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="type4" value="option3">
-            <label class="form-check-label" for="type4">文学</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="type5" value="option3">
-            <label class="form-check-label" for="type5">原创</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="type6" value="option3">
-            <label class="form-check-label" for="type6">网络</label>
+            <input class="form-check-input" type="radio" name="type" id="type3" value="c">
+            <label class="form-check-label" for="type3">游戏 &nbsp</label>
         </div>
         <br>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="type7" value="option3">
-            <label class="form-check-label" for="type7">其他</label>
+            <input class="form-check-input" type="radio" name="type" id="type4" value="d">
+            <label class="form-check-label" for="type4">文学 &nbsp</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="type8" value="option3">
-            <label class="form-check-label" for="type8">影视</label>
+            <input class="form-check-input" type="radio" name="type" id="type5" value="e">
+            <label class="form-check-label" for="type5">原创 &nbsp</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="type9" value="option3">
-            <label class="form-check-label" for="type9">诗词</label>
+            <input class="form-check-input" type="radio" name="type" id="type6" value="f">
+            <label class="form-check-label" for="type6">网络 &nbsp</label>
         </div>
         <br>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="type10" value="option3">
+            <input class="form-check-input" type="radio" name="type" id="type7" value="g">
+            <label class="form-check-label" for="type7">其他 &nbsp</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type8" value="h">
+            <label class="form-check-label" for="type8">影视 &nbsp</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type9" value="i">
+            <label class="form-check-label" for="type9">诗词 &nbsp</label>
+        </div>
+        <br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="type10" value="j">
             <label class="form-check-label" for="type10">网易云</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="type11" value="option3">
-            <label class="form-check-label" for="type11">哲学</label>
+            <input class="form-check-input" type="radio" name="type" id="type11" value="k">
+            <label class="form-check-label" for="type11">哲学 &nbsp</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="type12" value="option3">
+            <input class="form-check-input" type="radio" name="type" id="type12" value="l">
             <label class="form-check-label" for="type12">抖机灵</label>
         </div>
         <br><br>
-        <button class="btn btn-outline-success">投递</button>
+        <button id="submit" class="btn btn-outline-success" onclick="submit()">投递</button>
     </div>
 </div>
 <div style="height: 20px"></div>
@@ -138,4 +144,27 @@
     <a style="color: white;font-size: 15px">Copyright © 2021 Drizzle. All Rights Reserved.</a>
 </div>
 </body>
+<script>
+    $('input:radio:first').attr('checked', 'checked');
+
+    function submit() {
+        const submit = $('#submit');
+        submit.className = 'btn btn-outline-success';
+        const content = $('#content');
+        const type = $('input:radio:checked');
+        const from_where = $('#from_where');
+        const from_who = $('#from_who');
+        const email = $('#email');
+        $.post('/model/submit.php', {
+            content: content.val(), type: type.val(), from_where: from_where.val(),
+            from_who: from_who.val(), email: email.val()
+        }, function (res) {
+            alert(res)
+        })
+        content.val("");
+        from_where.val("");
+        from_who.val("");
+        submit.className = 'btn btn-outline-success disabled';
+    }
+</script>
 </html>
