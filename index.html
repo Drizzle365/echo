@@ -173,6 +173,7 @@
 
     function communicate_end() {
         document.getElementById('communicate_box').style.display = 'none'
+        document.getElementById('communicate').setAttribute('value', '');
         document.getElementById('like').style.display = 'block';
         document.getElementById('communicate_button').innerHTML = '🍪 评论';
     }
