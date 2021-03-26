@@ -61,7 +61,6 @@
     }
 </style>
 <body id="main" class="container">
-
 <nav class="navbar navbar-light bg-light" style="border-radius: 10px;opacity: 0.8;margin-top: 20px">
     <div id="update" onclick="update()" style="color:#9c27b0;font-size: 18px;cursor: pointer">来一句</div>
     <div class="button">
@@ -116,6 +115,7 @@
                 document.getElementById('update').innerHTML = '来一句💨';
             }, 100)
         });
+        communicate_end();
     }
 
     window.onresize = function () {
@@ -144,10 +144,41 @@
 
             <!-- 模态框底部 -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary">💕 喜爱 + 1</button>
+                <div class="form-group" id="communicate_box" style="display: none">
+                    <label for="communicate" style="float: left;margin-top: 6px">🎨:</label>
+                    <input type="text" class="form-control" id="communicate" style="width: 200px;">
+                </div>
+                <button type="button" class="btn btn-secondary" id="like">💕 喜爱 + 1</button>
+                <button type="button" class="btn btn-secondary" id="communicate_button" onclick="communicate()">🍪 评论
+                </button>
             </div>
 
         </div>
     </div>
 </div>
+<script>
+    function communicate() {
+        if ($('#communicate_button').text() === '🍪 评论') {
+            communicate_start();
+        } else {
+            communicate_submit();
+        }
+    }
+
+    function communicate_start() {
+        document.getElementById('communicate_box').style.display = 'block'
+        document.getElementById('like').style.display = 'none';
+        document.getElementById('communicate_button').innerHTML = '🍪 发表';
+    }
+
+    function communicate_end() {
+        document.getElementById('communicate_box').style.display = 'none'
+        document.getElementById('like').style.display = 'block';
+        document.getElementById('communicate_button').innerHTML = '🍪 评论';
+    }
+
+    function communicate_submit() {
+
+    }
+</script>
 </html>

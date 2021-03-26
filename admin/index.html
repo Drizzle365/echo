@@ -60,6 +60,11 @@
 <div id="echo_box" style="min-height: 110px;margin-top: 30px;">
     <div id="echo" class="echo_text">
         <p>Echo-管理面板</p>
+        <button type="button" class="btn btn-outline-primary">首页</button>
+        <button type="button" class="btn btn-outline-secondary">已审核</button>
+        <button type="button" class="btn btn-outline-success">未审核</button>
+        <button type="button" class="btn btn-outline-danger">用户</button>
+        <button type="button" class="btn btn-outline-warning">站点</button>
     </div>
 </div>
 <div style="height: 20px"></div>
@@ -67,4 +72,16 @@
     <a style="color: white;font-size: 15px">Copyright © 2021 Drizzle. All Rights Reserved.</a>
 </div>
 </body>
+<script>
+    const key = sessionStorage.getItem('key');
+    console.log(key);
+    $.get('../config.php', function (data) {
+        data = $.parseJSON(data);
+        if (key === data['key'].toString()) {
+            alert('欢迎回来！');
+        } else {
+            window.location.replace("/admin/login.html");
+        }
+    })
+</script>
 </html>

@@ -75,7 +75,14 @@
 </body>
 <script>
     function login() {
-
+        $.get('../config.php', function (data) {
+            data = $.parseJSON(data);
+            const key = $('#key').val();
+            if (key === data['key'].toString()) {
+                sessionStorage.setItem('key', key);
+                window.location.replace("/admin/index.html")
+            }
+        })
     }
 </script>
 </html>
