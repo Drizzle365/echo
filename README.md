@@ -10,6 +10,13 @@ Echo，来到这里，留下你所喜欢的那一句句话吧
 
 后端PHP需要8.0以上版本，本程序使用了较多的PHP8的新特性！
 
+>安装说明：
+
+自动安装文件尚未完成，目前部署需要简单的手工操作    
+全部文件上传至服务器，并修改`model`目录下`mysql.php`文件中的数据库信息。  
+将根目录的echo.sql（内含1500+的数据）上传至数据库。
+
+
 ### 图片演示：
 ![index](assets/img/index.jpg)
 ![content](assets/img/content.jpg)
