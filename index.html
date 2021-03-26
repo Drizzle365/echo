@@ -83,47 +83,6 @@
         Reserved.</a>
 </div>
 </body>
-<script>
-    function start() {
-        const echo_box = document.getElementById('echo_box')
-        const Height = document.documentElement.clientHeight
-        const Height_echo = echo_box.offsetHeight
-        echo_box.style.marginTop = (Height - Height_echo) / 3 + "px"
-        const footer_box = document.getElementById('footer_box')
-        const Height_footer = footer_box.offsetHeight
-        footer_box.style.marginTop = (Height - Height_footer - 420) + "px"
-    }
-
-    function update() {
-        document.getElementById('update').innerHTML = '正在获取';
-        $.get("model/api.php", function (data, status) {
-            setTimeout(function () {
-                data = $.parseJSON(data);
-                if (status === 'success') {
-                    document.getElementById('echo').innerHTML = data['content'];
-                    document.getElementById('see_content').innerHTML = data['content'];
-                    document.getElementById('see_like').innerHTML = '💕 喜爱: ' + data['likes'];
-                    if (data['from_who'] === 'None')
-                        data['from_who'] = '';
-                    if (data['from_where'] === 'None')
-                        data['from_where'] = ''
-                    else
-                        data['from_where'] = ' 《' + data['from_where'] + '》 ';
-                    document.getElementById('see_from').innerHTML = '🍻 来自: ' + data['from_who'] + data['from_where'];
-                } else
-                    alert("网络错误")
-                document.getElementById('update').innerHTML = '来一句💨';
-            }, 100)
-        });
-        communicate_end();
-    }
-
-    window.onresize = function () {
-        start()
-    }
-    start()
-    update();
-</script>
 <!-- 句子详情模态框 -->
 <div class="modal fade" id="see" style="display: none">
     <div class="modal-dialog">
@@ -156,10 +115,47 @@
         </div>
     </div>
 </div>
+</html>
 <script>
+    function start() {
+        const echo_box = document.getElementById('echo_box')
+        const Height = document.documentElement.clientHeight
+        const Height_echo = echo_box.offsetHeight
+        echo_box.style.marginTop = (Height - Height_echo) / 3 + "px"
+        const footer_box = document.getElementById('footer_box')
+        const Height_footer = footer_box.offsetHeight
+        footer_box.style.marginTop = (Height - Height_footer - 420) + "px"
+    }
+
+    function update() {
+        $('#communicate_box').css('display','none')
+        $('#like').css('display','block')
+        $('#communicate_button').html('🍪 评论');
+        $('#communicate').val('')
+        $('#update').html('正在获取');
+        $.get("model/api.php", function (data, status) {
+            setTimeout(function () {
+                data = $.parseJSON(data);
+                if (status === 'success') {
+                    $('#echo').html(data['content']);
+                    $('#see_content').html(data['content']);
+                    $('#see_like').html = '💕 喜爱: ' + data['likes'];
+                    if (data['from_who'] === 'None')
+                        data['from_who'] = '';
+                    if (data['from_where'] === 'None')
+                        data['from_where'] = ''
+                    else
+                        data['from_where'] = ' 《' + data['from_where'] + '》 ';
+                    $('#see_from').html('🍻 来自: ' + data['from_who'] + data['from_where']);
+                } else
+                    alert("网络错误")
+                $('#update').html('来一句💨');
+            }, 100)
+        });
+    }
+
     function communicate() {
-        communicate_start()
-        if ($('#communicate_button').text() === '🍪 评论') {
+        if ($('#communicate_button').text() === "🍪 评论") {
             communicate_start();
         } else {
             communicate_submit();
@@ -172,15 +168,13 @@
         document.getElementById('communicate_button').innerHTML = '🍪 发表';
     }
 
-    function communicate_end() {
-        document.getElementById('communicate_box').style.display = 'none'
-        document.getElementById('communicate').setAttribute('value', '');
-        document.getElementById('like').style.display = 'block';
-        document.getElementById('communicate_button').innerHTML = '🍪 评论';
-    }
-
     function communicate_submit() {
 
     }
+
+    window.onresize = function () {
+        start()
+    }
+    start()
+    update();
 </script>
-</html>
