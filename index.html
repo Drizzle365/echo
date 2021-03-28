@@ -104,10 +104,12 @@
             <!-- 模态框底部 -->
             <div class="modal-footer">
                 <div class="form-group" id="communicate_box" style="display: none">
-                    <label for="communicate" style="float: left;margin-top: 6px">🎨:</label>
+                    <label for="communicate" style="float: left;margin-top: 6px"></label>
                     <input type="text" class="form-control" id="communicate" style="width: 200px;">
                 </div>
-                <button type="button" class="btn btn-secondary" id="like">💕 喜爱 + 1</button>
+                <button type="button" class="btn btn-secondary" id="like" data-dismiss="modal" onclick="like()">
+                    💕 喜爱 + 1
+                </button>
                 <button type="button" class="btn btn-secondary" id="communicate_button" onclick="communicate()">🍪 评论
                 </button>
             </div>
@@ -128,8 +130,8 @@
     }
 
     function update() {
-        $('#communicate_box').css('display','none')
-        $('#like').css('display','block')
+        $('#communicate_box').css('display', 'none')
+        $('#like').css('display', 'block')
         $('#communicate_button').html('🍪 评论');
         $('#communicate').val('')
         $('#update').html('正在获取');
@@ -139,7 +141,7 @@
                 if (status === 'success') {
                     $('#echo').html(data['content']);
                     $('#see_content').html(data['content']);
-                    $('#see_like').html = '💕 喜爱: ' + data['likes'];
+                    $('#see_like').html('💕 喜爱: ' + data['likes']);
                     if (data['from_who'] === 'None')
                         data['from_who'] = '';
                     if (data['from_where'] === 'None')
@@ -165,10 +167,15 @@
     function communicate_start() {
         document.getElementById('communicate_box').style.display = 'block'
         document.getElementById('like').style.display = 'none';
+        document.getElementById('communicate').focus();
         document.getElementById('communicate_button').innerHTML = '🍪 发表';
     }
 
     function communicate_submit() {
+
+    }
+
+    function like() {
 
     }
 

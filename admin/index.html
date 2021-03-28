@@ -12,6 +12,18 @@
     <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
 </head>
+<script>
+    const key = sessionStorage.getItem('key');
+    console.log(key);
+    $.get('../config.php', function (data) {
+        data = $.parseJSON(data);
+        if (key === data['key'].toString()) {
+
+        } else {
+            window.location.replace("/admin/login.html");
+        }
+    })
+</script>
 <style>
     @font-face {
         font-family: Zpix;
@@ -40,7 +52,8 @@
         /*noinspection CssInvalidFunction*/
         background-color: rgb(0, 0, 0, 0.6);
         border-radius: 30px;
-        padding: 18px
+        padding: 18px;
+        min-height: 800px;
     }
 
     .footer {
@@ -60,11 +73,12 @@
 <div id="echo_box" style="min-height: 110px;margin-top: 30px;">
     <div id="echo" class="echo_text">
         <p>Echo-管理面板</p>
-        <button type="button" class="btn btn-outline-primary">首页</button>
-        <button type="button" class="btn btn-outline-secondary">已审核</button>
-        <button type="button" class="btn btn-outline-success">未审核</button>
-        <button type="button" class="btn btn-outline-danger">用户</button>
-        <button type="button" class="btn btn-outline-warning">站点</button>
+        <button type="button" class="btn btn-outline-primary" onclick="index('record')">首页</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="index('sentence')">句子</button>
+        <button type="button" class="btn btn-outline-success" onclick="index('examine')">审核</button>
+        <button type="button" class="btn btn-outline-danger" onclick="index('set')">设置</button>
+        <div style="height: 20px"></div>
+        <div id="admin"></div>
     </div>
 </div>
 <div style="height: 20px"></div>
@@ -73,15 +87,12 @@
 </div>
 </body>
 <script>
-    const key = sessionStorage.getItem('key');
-    console.log(key);
-    $.get('../config.php', function (data) {
-        data = $.parseJSON(data);
-        if (key === data['key'].toString()) {
-            alert('欢迎回来！');
-        } else {
-            window.location.replace("/admin/login.html");
-        }
-    })
+    function index(index) {
+        $.get(index+'.html', function (data) {
+            $('#admin').html(data);
+        })
+    }
+
+    index('record')
 </script>
 </html>

@@ -153,12 +153,12 @@ class Mysql
     }
 
     //分页
-    #[ArrayShape(['total' => "mixed", 'date' => "array"])] public function pages($page, $page_size = 10): array
+    #[ArrayShape(['total' => "mixed", 'data' => "array"])] public function pages($page, $page_size = 10): array
     {
         $count = $this->count();
         $this->limit = ($page - 1) * $page_size . ',' . $page_size;
         $data = $this->list();
-        return array('total' => $count, 'date' => $data);
+        return array('total' => $count, 'data' => $data);
     }
 
     //插入数据

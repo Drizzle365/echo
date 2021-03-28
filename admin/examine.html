@@ -1,0 +1,35 @@
+<div style="overflow: auto">
+    <table class="table table-sm table-hover table-dark">
+        <thead>
+        <tr>
+            <th scope="col">操作</th>
+            <th scope="col">内容</th>
+            <th scope="col">分类</th>
+            <th scope="col">投稿</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+</div>
+<script>
+    $.get('../model/admin.php?class=examine', function (data) {
+        data = $.parseJSON(data);
+        const count = data['total'];
+        let html = ''
+        for (let i in data['data']) {
+            if (data['data'].hasOwnProperty(i))
+                html = html + '<tr>\n' +
+                    '        <th scope="row" style="white-space: nowrap;">\n' +
+                    '            <button type="button" class="btn btn-outline-success btn-sm">通过</button>\n' +
+                    '            <button type="button" class="btn btn-outline-warning btn-sm">删除</button>\n' +
+                    '        </th>\n' +
+                    '        <td style="white-space: nowrap;text-align: left;">' + data['data'][i]['content'].substring(0, 25) + '···</td>\n' +
+                    '        <td style="white-space: nowrap;">' + data['data'][i]['type'] + '</td>\n' +
+                    '        <td style="white-space: nowrap;">' + data['data'][i]['email'] + '</td>\n' +
+                    '    </tr>'
+        }
+        $('#tbody').html(html)
+    })
+</script>
