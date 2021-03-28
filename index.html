@@ -60,6 +60,18 @@
         }
     }
 </style>
+<div class="toast hide"
+     style="position: absolute; left: 0; right: 0; margin-left: auto; margin-right: auto;margin-top: 100px; z-index: 1">
+    <div class="toast-header">
+        <strong class="mr-auto">Tip:</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        感谢您的喜欢 💕
+    </div>
+</div>
 <body id="main" class="container">
 <nav class="navbar navbar-light bg-light" style="border-radius: 10px;opacity: 0.8;margin-top: 20px">
     <div id="update" onclick="update()" style="color:#9c27b0;font-size: 18px;cursor: pointer">来一句</div>
@@ -83,6 +95,7 @@
         Reserved.</a>
 </div>
 </body>
+
 <!-- 句子详情模态框 -->
 <div class="modal fade" id="see" style="display: none">
     <div class="modal-dialog">
@@ -119,6 +132,13 @@
 </div>
 </html>
 <script>
+    let id, likes;
+    $(document).ready(function () {
+        $("#like").click(function () {
+            $('.toast').toast('show');
+        });
+    });
+
     function start() {
         const echo_box = document.getElementById('echo_box')
         const Height = document.documentElement.clientHeight
@@ -139,6 +159,8 @@
             setTimeout(function () {
                 data = $.parseJSON(data);
                 if (status === 'success') {
+                    id = data['Id'];
+                    likes = data['likes'];
                     $('#echo').html(data['content']);
                     $('#see_content').html(data['content']);
                     $('#see_like').html('💕 喜爱: ' + data['likes']);
@@ -176,7 +198,11 @@
     }
 
     function like() {
-
+        likes++;
+        $.get("model/likes.php?id=" + id, function (data) {
+            if (data.toString() === '谢谢哦')
+                $('#see_like').html('💕 喜爱: ' + likes);
+        })
     }
 
     window.onresize = function () {
