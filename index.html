@@ -63,14 +63,12 @@
 <div class="toast hide"
      style="position: absolute; left: 0; right: 0; margin-left: auto; margin-right: auto;margin-top: 100px; z-index: 1">
     <div class="toast-header">
-        <strong class="mr-auto">Tip:</strong>
+        <strong class="mr-auto" id="message_title"></strong>
         <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="toast-body">
-        感谢您的喜欢 💕
-    </div>
+    <div class="toast-body" id="message_content"></div>
 </div>
 <body id="main" class="container">
 <nav class="navbar navbar-light bg-light" style="border-radius: 10px;opacity: 0.8;margin-top: 20px">
@@ -94,8 +92,8 @@
     <a style="color: white;font-size: 15px">Copyright © 2021 Drizzle. All Rights
         Reserved.</a>
 </div>
-</body>
 
+</body>
 <!-- 句子详情模态框 -->
 <div class="modal fade" id="see" style="display: none">
     <div class="modal-dialog">
@@ -126,18 +124,12 @@
                 <button type="button" class="btn btn-secondary" id="communicate_button" onclick="communicate()">🍪 评论
                 </button>
             </div>
-
         </div>
     </div>
 </div>
 </html>
 <script>
     let id, likes;
-    $(document).ready(function () {
-        $("#like").click(function () {
-            $('.toast').toast('show');
-        });
-    });
 
     function start() {
         const echo_box = document.getElementById('echo_box')
@@ -197,12 +189,19 @@
 
     }
 
+    function message(title, content) {
+        $('#message_title').html(title);
+        $('#message_content').html(content);
+        $('.toast').toast('show');
+    }
+
     function like() {
         likes++;
         $.get("model/likes.php?id=" + id, function (data) {
             if (data.toString() === '谢谢哦')
                 $('#see_like').html('💕 喜爱: ' + likes);
         })
+        message('Tip:', '感谢您的喜欢 💕');
     }
 
     window.onresize = function () {

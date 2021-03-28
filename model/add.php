@@ -1,15 +1,15 @@
 <?php
 require_once 'mysql.php';
-if (!isset($_GET['content']))
+if (!isset($_POST['content']))
     exit('未检测到数据');
-$content = $_GET['content'];
-$type = $_GET['type'];
+$content = $_POST['content'];
+$type = $_POST['type'];
 $from_where = 'None';
 $from_who = 'None';
-if (isset($_GET['from_where']))
-    $from_where = $_GET['from_where'];
-if (isset($_GET['from_who']))
-    $from_who = $_GET['from_who'];
+if (isset($_POST['from_where']))
+    $from_where = $_POST['from_where'];
+if (isset($_POST['from_who']))
+    $from_who = $_POST['from_who'];
 $db = new Mysql();
 $data = array('content' => $content, 'type' => $type, 'from_where' => $from_where, 'from_who' => $from_who,'likes'=>0);
 $temp = $db->table('data')->field('*')->where("content='{$content}'")->item();
