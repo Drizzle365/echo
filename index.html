@@ -92,41 +92,7 @@
     <a style="color: white;font-size: 15px">Copyright © 2021 Drizzle. All Rights
         Reserved.</a>
 </div>
-
 </body>
-<!-- 句子详情模态框 -->
-<div class="modal fade" id="see" style="display: none">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <!-- 模态框头部 -->
-            <div class="modal-header">
-                <h4 class="modal-title">句子详情：</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- 模态框主体 -->
-            <div class="modal-body" id="see_box">
-                <p id="see_content"></p>
-                <p id="see_like"></p>
-                <p id="see_from"></p>
-            </div>
-
-            <!-- 模态框底部 -->
-            <div class="modal-footer">
-                <div class="form-group" id="communicate_box" style="display: none">
-                    <label for="communicate" style="float: left;margin-top: 6px"></label>
-                    <input type="text" class="form-control" id="communicate" style="width: 200px;">
-                </div>
-                <button type="button" class="btn btn-secondary" id="like" data-dismiss="modal" onclick="like()">
-                    💕 喜爱 + 1
-                </button>
-                <button type="button" class="btn btn-secondary" id="communicate_button" onclick="communicate()">🍪 评论
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
 </html>
 <script>
     let id, likes;
@@ -210,3 +176,36 @@
     start()
     update();
 </script>
+<!-- 句子详情模态框 -->
+<div class="modal fade" id="see" style="position: absolute">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">句子详情：</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body" id="see_box">
+                <p id="see_content"></p>
+                <p id="see_like"></p>
+                <p id="see_from"></p>
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <div class="form-group" id="communicate_box" style="display: none">
+                    <label for="communicate" style="float: left;margin-top: 6px"></label>
+                    <input type="text" class="form-control" id="communicate" style="width: 200px;">
+                </div>
+                <button type="button" class="btn btn-secondary" id="like" data-dismiss="modal" onclick="like()">
+                    💕 喜爱 + 1
+                </button>
+                <button type="button" class="btn btn-secondary" id="communicate_button" onclick="communicate()">🍪 评论
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
