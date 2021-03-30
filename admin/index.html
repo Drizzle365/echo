@@ -14,7 +14,6 @@
 </head>
 <script>
     const key = sessionStorage.getItem('key');
-    console.log(key);
     $.get('../config.php', function (data) {
         data = $.parseJSON(data);
         if (key === data['key'].toString()) {
@@ -92,7 +91,6 @@
             $('#admin').html(data);
         })
     }
-
     index('record')
 </script>
 </html>

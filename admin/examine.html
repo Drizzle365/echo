@@ -17,19 +17,35 @@
     $.get('../model/admin.php?class=examine', function (data) {
         data = $.parseJSON(data);
         const count = data['total'];
-        let html = ''
+        let html = '';
         for (let i in data['data']) {
             if (data['data'].hasOwnProperty(i))
-                html = html + '<tr>\n' +
+                html = html + '<tr id="tr_' + data['data'][i]['id'] + '">\n' +
                     '        <th scope="row" style="white-space: nowrap;">\n' +
-                    '            <button type="button" class="btn btn-outline-success btn-sm">通过</button>\n' +
+                    '            <button type="button" class="btn btn-outline-success btn-sm" onclick="success(' + data['data'][i]['id'] + ')">通过</button>\n' +
                     '            <button type="button" class="btn btn-outline-warning btn-sm">删除</button>\n' +
                     '        </th>\n' +
-                    '        <td style="white-space: nowrap;text-align: left;">' + data['data'][i]['content'].substring(0, 25) + '···</td>\n' +
+                    '        <td style="white-space: nowrap;text-align: left;">' + data['data'][i]['content'].substring(0, 25) + '</td>\n' +
                     '        <td style="white-space: nowrap;">' + data['data'][i]['type'] + '</td>\n' +
                     '        <td style="white-space: nowrap;">' + data['data'][i]['email'] + '</td>\n' +
                     '    </tr>'
         }
         $('#tbody').html(html)
     })
+
+    function success(id_examine) {
+        $.post('../model/add.php', {id: id_examine}, function (res) {
+            console.log(res)
+            if (res.toString() === '成功') {
+                alert('已通过');
+                $("#tr_" + id_examine).remove();
+
+            } else if (res.toString() === '已存在') {
+                alert('已存在')
+                $("#tr_" + id_examine).remove();
+            } else
+                alert('失败');
+
+        })
+    }
 </script>

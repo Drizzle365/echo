@@ -1,20 +1,19 @@
 <?php
 require_once 'mysql.php';
-if (!isset($_POST['content']))
+if (!isset($_POST['id']))
     exit('未检测到数据');
-$content = $_POST['content'];
-$type = $_POST['type'];
-$from_where = 'None';
-$from_who = 'None';
-if (isset($_POST['from_where']))
-    $from_where = $_POST['from_where'];
-if (isset($_POST['from_who']))
-    $from_who = $_POST['from_who'];
+$id = $_POST['id'];
 $db = new Mysql();
-$data = array('content' => $content, 'type' => $type, 'from_where' => $from_where, 'from_who' => $from_who,'likes'=>0);
-$temp = $db->table('data')->field('*')->where("content='{$content}'")->item();
-if (isset($temp['content']))
+$temp = $db->table('submit')->field('content,type,from_where,from_who')->where("id={$id}")->item();
+$temp2 = $db->table('data')->field('*')->where("content='{$temp['content']}'")->item();
+$temp['likes'] = 0;
+if (isset($temp2['content'])) {
+    $db->table('submit')->where("id={$id}")->delete();
     exit("已存在");
-$id = $db->table('data')->insert($data);
-exit("插入成功");
+} else {
+    $db->table('data')->insert($temp);
+    $db->table('submit')->where("id={$id}")->delete();
+    exit("成功");
+}
+
 
